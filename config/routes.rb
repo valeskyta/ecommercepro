@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'review/create'
+
   resources :products do
     resources :reviews, only: [:create]
   end
