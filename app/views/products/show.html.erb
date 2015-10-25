@@ -29,3 +29,5 @@
 <%= link_to 'Back', products_path %>
 
 <%= render "review/form" %>
+
+<%= render partial: "review/review", collection: @last_reviews %>

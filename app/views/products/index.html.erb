@@ -9,6 +9,7 @@
       <th>Description</th>
       <th>Stock</th>
       <th>Price</th>
+      <th>Reviews</th>
       <th>Photo</th>
       <th colspan="3"></th>
     </tr>
@@ -21,6 +22,7 @@
         <td><%= product.description %></td>
         <td><%= product.stock %></td>
         <td><%= product.price %></td>
+        <td><%= product.reviews.count %></td>
         <td><%= product.photo %></td>
         <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>

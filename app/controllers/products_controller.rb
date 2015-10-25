@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
 
   def show
     @review = @product.reviews.build
+    @last_reviews = @product.reviews.last(5)
   end
 
   # GET /products/new
@@ -74,3 +75,5 @@ class ProductsController < ApplicationController
       params.require(:product).permit(:name, :description, :stock, :price, :photo)
     end
 end
+
+
