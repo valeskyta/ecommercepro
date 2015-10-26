@@ -1,7 +1,8 @@
 class ReviewsController < ApplicationController
+  load_and_authorize_resource
   def create
     @product = Product.find(params[:product_id])
-    @review = @product.reviews.build(reviews_params)
+    @review = @product.reviews.build(review_params) #singular
     if @review.save
       redirect_to @product, notice: "El review fue creado con exito"
     else
@@ -10,7 +11,7 @@ class ReviewsController < ApplicationController
   end
 
   private
-  def reviews_params
+  def review_params #singular
     params.require(:review).permit(:review)
   end
 end
