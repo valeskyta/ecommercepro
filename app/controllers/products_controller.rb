@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
 
+
   def show
     @review = @product.reviews.build
     @last_reviews = @product.reviews.last(5)
@@ -27,8 +28,10 @@ class ProductsController < ApplicationController
 
   # POST /products
   # POST /products.json
+
   def create
     @product = Product.new(product_params)
+    @post.user = current_user
 
     respond_to do |format|
       if @product.save
@@ -40,6 +43,7 @@ class ProductsController < ApplicationController
       end
     end
   end
+
 
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
@@ -60,7 +64,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to admin_products_url, notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
