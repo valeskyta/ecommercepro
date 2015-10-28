@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  #validates :name, presence: true
+  validates :name, presence: true
+  validates :username, presence: true, length: 3..20, uniqueness: true, format: { without: /[!-\/\@\^\~\`\(\)\[\]\>\<\=]/ }
   has_many :products, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
@@ -16,5 +17,7 @@ class User < ActiveRecord::Base
     self.role ||=1
   end
 end
+
+
 
 
