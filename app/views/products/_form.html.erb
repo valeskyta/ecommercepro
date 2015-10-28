@@ -24,6 +24,10 @@
     <%= f.number_field :stock %>
   </div>
   <div class="field">
+    <%= f.label :category_id, 'Categoria:'%>
+    <%= f.collection_select :category_id, Category.all, :id, :name, prompt: 'Elige categoria' %>
+  </div>
+  <div class="field">
     <%= f.label :price %><br>
     <%= f.number_field :price %>
   </div>

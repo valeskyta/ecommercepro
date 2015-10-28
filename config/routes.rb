@@ -2,12 +2,18 @@ Rails.application.routes.draw do
   devise_for :users
   get 'review/create'
 
+  resources :products, only: [:index, :show]
+
   resources :products do
     resources :reviews, only: [:create]
   end
 
   namespace :admin do
     resources :products
+    resources :orders
+    resources :users
+
+    get '/', to: 'pages#index'
   end
 
 
