@@ -7,6 +7,7 @@ class Admin::UsersController < ApplicationController
     @admin_users = Admin::User.all
   end
 
+
   # GET /admin/users/1
   # GET /admin/users/1.json
   def show
