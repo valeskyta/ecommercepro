@@ -29,7 +29,9 @@
   </div>
   <div class="field">
     <%= f.label :photo %><br>
-    <%= f.text_field :photo %>
+    <%= f.file_field :photo %>
+    <%= f.hidden_field :photo_cache %>
+    <%= f.check_box :remove_photo %> Remover
   </div>
   <div class="actions">
     <%= f.submit %>
